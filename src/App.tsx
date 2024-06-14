@@ -14,8 +14,8 @@ function App() {
   return (
     <div >
 
-      <Navbar/>
-      <AdminCourse/>
+      {/* <Navbar/> */}
+      {/* <AdminCourse/> */}
 
       <Main />
 
