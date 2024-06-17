@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppBar,Toolbar,Typography, IconButton, Button, Menu,  MenuItem,Box,} from '@mui/material';
+import { AppBar,Toolbar,Typography, IconButton, Button, Menu,  MenuItem} from '@mui/material';
 import {Dashboard, Info,ContactMail, School,Translate,Notifications,CardMembership,Subscriptions,People,Gavel,AccountCircle,} from '@mui/icons-material';
 
 interface TopNavState {
@@ -83,48 +83,28 @@ class TopNav extends Component<{}, TopNavState> {
 export default TopNav;
 
 
-// import React, { useState, MouseEvent } from 'react';
-// import {
-//   AppBar,
-//   Toolbar,
-//   Typography,
-//   IconButton,
-//   Button,
-//   Menu,
-//   MenuItem,
-//   useMediaQuery,
-//   Theme,
-//   Hidden,
-//   Drawer,
-//   List,
-//   ListItem,
-//   ListItemIcon,
-//   ListItemText,
-//   Box,
-// } from '@mui/material';
-// import {
-//   Dashboard,
-//   Info,
-//   ContactMail,
-//   School,
-//   Translate,
-//   Notifications,
-//   CardMembership,
-//   Subscriptions,
-//   People,
-//   Gavel,
-//   AccountCircle,
-//   Menu as MenuIcon,
-// } from '@mui/icons-material';
-// import { useTheme } from '@mui/material/styles';
+///////////////////////////////////////with responsive////////////////////////////////////
+// import React, { useState } from 'react';
+// import { AppBar, Toolbar, Typography, IconButton, Button, Menu, MenuItem, Box, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+// import { Dashboard, Info, ContactMail, School, Translate, Notifications, CardMembership, Subscriptions, People, Gavel, AccountCircle, Menu as MenuIcon } from '@mui/icons-material';
+// import { makeStyles, createStyles } from '@mui/styles';
+// import { useMediaQuery } from '@mui/material';
+
+// const useStyles = makeStyles(() =>
+//   createStyles({
+//     drawerPaper: {
+//       width: 240,
+//     },
+//   })
+// );
 
 // const TopNav: React.FC = () => {
 //   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 //   const [drawerOpen, setDrawerOpen] = useState(false);
-//   const theme = useTheme();
-//   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+//   const classes = useStyles();
+//   const isMobile = useMediaQuery('(max-width:600px)');
 
-//   const handleMenu = (event: MouseEvent<HTMLElement>) => {
+//   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
 //     setAnchorEl(event.currentTarget);
 //   };
 
@@ -132,23 +112,8 @@ export default TopNav;
 //     setAnchorEl(null);
 //   };
 
-//   // const toggleDrawer = (open: boolean) => (event: MouseEvent) => {
-//   //   if (
-//   //     event.type === 'keydown' &&
-//   //     ((event as React.KeyboardEvent).key === 'Tab' ||
-//   //       (event as React.KeyboardEvent).key === 'Shift')
-//   //   ) {
-//   //     return;
-//   //   }
-//   //   setDrawerOpen(open);
-//   // };
-
-//   const toggleDrawer = (open: boolean) => (event: MouseEvent<unknown>) => {
-//     if (
-//       event.type === 'keydown' &&
-//       ((event as React.KeyboardEvent).key === 'Tab' ||
-//         (event as React.KeyboardEvent).key === 'Shift')
-//     ) {
+//   const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+//     if (event.type === 'keydown' && ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')) {
 //       return;
 //     }
 //     setDrawerOpen(open);
@@ -167,65 +132,42 @@ export default TopNav;
 //     { text: 'Terms & Conditions', icon: <Gavel /> },
 //   ];
 
-//   const renderMenuButtons = () => (
-//     <>
-//       {menuItems.map((item) => (
-//         <Button
-//           key={item.text}
-//           startIcon={item.icon}
-//           sx={{ fontSize: '0.8rem' }}
-//         >
-//           {item.text}
-//         </Button>
-//       ))}
-//     </>
-//   );
-
-//   const renderDrawerList = () => (
-//     // <Box
-//     //   sx={{ width: 250 }}
-//     //   role="presentation"
-//     //   onClick={toggleDrawer(false)}
-//     //   onKeyDown={toggleDrawer(false)}
-//     // >
-//     <Box
-//   sx={{ width: 250 }}
-//   role="presentation"
-//   onClick={toggleDrawer(false)}
-//   onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => toggleDrawer(false)(event)}
-// >
-//       <List>
-//         {menuItems.map((item) => (
-//           <ListItem button key={item.text}>
-//             <ListItemIcon>{item.icon}</ListItemIcon>
-//             <ListItemText primary={item.text} />
-//           </ListItem>
-//         ))}
-//       </List>
-//     </Box>
-//   );
-
 //   return (
 //     <AppBar position="static" color="default">
 //       <Toolbar>
-//         <Typography
-//           variant="h6"
-//           noWrap
-//           sx={{ flexGrow: 1, fontWeight: 'bold', color: 'red', fontSize: '1.2rem' }}
-//         >
+//         <Typography variant="h6" noWrap sx={{ flexGrow: 1, fontWeight: 'bold', color: 'red', fontSize: '1.2rem' }}>
 //           EtOH Coach
 //         </Typography>
-//         <Hidden smDown>{renderMenuButtons()}</Hidden>
-//         <Hidden smUp>
-//           <IconButton
-//             edge="start"
-//             color="inherit"
-//             aria-label="menu"
-//             onClick={toggleDrawer(true)}
-//           >
-//             <MenuIcon />
-//           </IconButton>
-//         </Hidden>
+//         {isMobile ? (
+//           <>
+//             <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+//               <MenuIcon />
+//             </IconButton>
+//             <Drawer
+//               anchor="left"
+//               open={drawerOpen}
+//               onClose={toggleDrawer(false)}
+//               classes={{ paper: classes.drawerPaper }}
+//             >
+//               <Box role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
+//                 <List>
+//                   {menuItems.map((item, index) => (
+//                     <ListItem button key={index}>
+//                       <ListItemIcon>{item.icon}</ListItemIcon>
+//                       <ListItemText primary={item.text} />
+//                     </ListItem>
+//                   ))}
+//                 </List>
+//               </Box>
+//             </Drawer>
+//           </>
+//         ) : (
+//           menuItems.map((item, index) => (
+//             <Button startIcon={item.icon} sx={{ fontSize: '0.3rem' }} key={index}>
+//               {item.text}
+//             </Button>
+//           ))
+//         )}
 //         <IconButton
 //           edge="end"
 //           aria-label="account of current user"
@@ -258,11 +200,9 @@ export default TopNav;
 //           <MenuItem onClick={handleClose}>My account</MenuItem>
 //         </Menu>
 //       </Toolbar>
-//       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-//         {renderDrawerList()}
-//       </Drawer>
 //     </AppBar>
 //   );
 // };
 
 // export default TopNav;
+

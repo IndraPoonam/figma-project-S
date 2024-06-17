@@ -1,172 +1,75 @@
-
-import React, { Component } from 'react'
-import { Box } from '@mui/material'
+import React, { Component } from 'react';
+import { Box } from '@mui/material';
 import SideNav from './SideNav/SideNav';
 import CourseInformation from './CourseDetails/CourseInformation';
-interface State {
-    DataFirst: ThemeData,
-    AllData: ThemeData[],
-    LessonData: Lesson[],
-    Lesson: Lesson
 
+interface State {
+    DataTheme: ThemeData;
+    AllDataTheme: ThemeData[];
+    Lesson: Lesson;
 }
 
 interface ThemeData {
-    name: string
+    name: string;
+    LessonData: Lesson[];
+}
 
-}
 interface Lesson {
-    name: string
+    name: string;
 }
+
 export default class Main extends Component<{}, State> {
     constructor(props: {}) {
         super(props);
         this.state = {
-            DataFirst: {
+            DataTheme: {
                 name: '',
+                LessonData: [],
             },
-            LessonData: [],
-            AllData: [],
+            AllDataTheme: [],
+           
             Lesson: {
                 name: ''
             },
-
         }
     }
+    
     handleAddData = () => {
-        const { AllData, DataFirst } = this.state
-        this.setState({ AllData: [...AllData, DataFirst] })
-
+        const { AllDataTheme, DataTheme } = this.state;
+        const newData = { ...DataTheme, index: AllDataTheme.length };
+        this.setState({ AllDataTheme: [...AllDataTheme, newData] });
     }
-    handleAddLesson = () => {
-        const { LessonData, Lesson } = this.state
-        this.setState({ LessonData: [...LessonData, Lesson] })
 
+    handleAddLesson = (theme_id:number) => {
+        const {AllDataTheme, Lesson} = this.state
+
+        const updatedCourseThemes = [...AllDataTheme];
+        const updatedTheme = { ...updatedCourseThemes[theme_id] };
+        updatedTheme.LessonData = [...updatedTheme.LessonData, Lesson];
+        updatedCourseThemes[theme_id] = updatedTheme;
+        this.setState({ AllDataTheme: updatedCourseThemes });
     }
-    // handleDelete = () => {
-    //     console.log("Delete lesson");
-    // }
-
+   
+    handleDeleteTheme = (id: number) => {
+        const { AllDataTheme } = this.state;
+        const ThemeDelete = AllDataTheme.filter((item,index) => index !== id);
+        this.setState({ AllDataTheme: [...ThemeDelete] });
+    }
 
     render() {
         return (
-          
-            <Box display='flex' gap="2rem"  sx={{bgcolor:'#f6f6f6',padding:'10px'}}>
-            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-              <SideNav handleAddData={this.handleAddData} AllData={this.state.AllData} />
+            <Box display='flex' gap="2rem" sx={{ bgcolor: '#f6f6f6', padding: '10px' }}>
+                <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                    <SideNav handleAddData={this.handleAddData} AllData={this.state.AllDataTheme} />
+                </Box>
+                <CourseInformation
+                    handleAddData={this.handleAddData}
+                    handleAddLesson={this.handleAddLesson}
+                    AllDataTheme={this.state.AllDataTheme}
+                    // LessonData={this.state.LessonData}
+                    handleDeleteTheme={this.handleDeleteTheme}
+                />
             </Box>
-            <CourseInformation
-              handleAddData={this.handleAddData}
-              handleAddLesson={this.handleAddLesson}
-              AllData={this.state.AllData}
-              LessonData={this.state.LessonData}
-              // handleDelete={this.handleDelete}
-            />
-          </Box>
         )
     }
 }
-
-
-// import React, { Component } from 'react'
-// import { Box } from '@mui/material'
-// import SideNav from './SideNav/SideNav';
-// import CourseInformation from './CourseDetails/CourseInformation';
-// interface State {
-//     DataFirst: ThemeData,
-//     AllData: ThemeData[],
-//     LessonData: Lesson[],
-//     Lesson: Lesson
-
-// }
-
-// // interface ThemeData {
-// //     name: string
-
-// // }
-// // interface Lesson {
-// //     name: string
-// // }
-
-// interface State {
-//     course:CourseType;
-//     course_themes:ThemeData[];
-//     theme:ThemeData;
-//     lesson:Lesson;
-//   }
-  
-//   interface Lesson {
-//     title:string;
-//     leaderboard_points:number;
-//     product_type:number;
-//     image_url:string;
-//     description:string;
-//   }
-  
-//   interface ThemeData {
-//     title:string;
-//     leaderboard_points:number;
-//     product_type:number;
-//     image_url:string;
-//     lessons:Lesson[];
-//   }
-  
-//   interface CourseType {
-//     name:string;
-//     duration:string;
-//     leaderboard_points:number;
-//     category:number;
-//     level:number;
-//     product_type:number;
-//     language:number;
-//     certificate:number;
-//     description:string;
-//     image_url:string;
-//   }
-  
-// export default class Main extends Component<{}, State> {
-//     constructor(props: {}) {
-//         super(props);
-//         this.state = {
-//             DataFirst: {
-//                 name: '',
-//             },
-//             LessonData: [],
-//             AllData: [],
-//             Lesson: {
-//                 name: ''
-//             },
-
-//         }
-//     }
-//     handleAddData = () => {
-//         const { AllData, DataFirst } = this.state
-//         this.setState({ AllData: [...AllData, DataFirst] })
-
-//     }
-//     handleAddLesson = () => {
-//         const { LessonData, Lesson } = this.state
-//         this.setState({ LessonData: [...LessonData, Lesson] })
-
-//     }
-//     // handleDelete = () => {
-//     //     console.log("Delete lesson");
-//     // }
-
-
-//     render() {
-//         return (
-//             <Box display='flex' gap="8rem">
-//                 <SideNav handleAddData={this.handleAddData} AllData={this.state.AllData} />
-//                 <CourseInformation
-//                     handleAddData={this.handleAddData}
-//                     handleAddLesson={this.handleAddLesson}
-//                     AllData={this.state.AllData}
-//                     LessonData={this.state.LessonData}
-//                 // handleDelete={this.handleDelete}
-
-//                 />
-//             </Box>
-//         )
-//     }
-// }
