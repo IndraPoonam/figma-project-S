@@ -61,7 +61,7 @@ class ThemeComponent extends Component<Props, State> {
                     <Typography variant="h5" fontWeight="bold">
                         Theme {this.props.index + 1}
                     </Typography>
-                    <Typography><StarBorderIcon />5str</Typography>
+                <Box>   <StarBorderIcon />5str
                     <IconButton color="secondary">
                         <Button
                             variant="outlined"
@@ -73,6 +73,7 @@ class ThemeComponent extends Component<Props, State> {
                             Delete Theme
                         </Button>
                     </IconButton>
+                    </Box> 
                 </Grid>
                 <Divider />
                 <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: '2rem' }}>
@@ -132,6 +133,12 @@ class ThemeComponent extends Component<Props, State> {
                             <Grid item xs={12} sm={6}>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                                     <Typography sx={{ fontSize: '1rem', fontWeight: 'bold' }}>Overview Picture</Typography>
+                                    <Typography color={'gray'} variant="caption" display="block">
+                    Minimal Picture: 343x193 px
+                    </Typography>
+                    <Typography color={'gray'} variant="caption" display="block">
+                    Maximum size: 5 mb
+                    </Typography>
                                     <Button variant="contained" component="label" startIcon={<AddPhotoAlternateIcon />}>
                                         Choose File
                                         <input type="file" hidden onChange={this.handleFileChange} />

@@ -27,21 +27,20 @@ export default class Main extends Component<{}, State> {
                 LessonData: [],
             },
             AllDataTheme: [],
-           
             Lesson: {
                 name: ''
             },
         }
     }
-    
+
     handleAddData = () => {
         const { AllDataTheme, DataTheme } = this.state;
         const newData = { ...DataTheme, index: AllDataTheme.length };
         this.setState({ AllDataTheme: [...AllDataTheme, newData] });
     }
 
-    handleAddLesson = (theme_id:number) => {
-        const {AllDataTheme, Lesson} = this.state
+    handleAddLesson = (theme_id: number) => {
+        const { AllDataTheme, Lesson } = this.state
 
         const updatedCourseThemes = [...AllDataTheme];
         const updatedTheme = { ...updatedCourseThemes[theme_id] };
@@ -49,11 +48,22 @@ export default class Main extends Component<{}, State> {
         updatedCourseThemes[theme_id] = updatedTheme;
         this.setState({ AllDataTheme: updatedCourseThemes });
     }
-   
+
     handleDeleteTheme = (id: number) => {
         const { AllDataTheme } = this.state;
-        const ThemeDelete = AllDataTheme.filter((item,index) => index !== id);
+        const ThemeDelete = AllDataTheme.filter((item, index) => index !== id);
         this.setState({ AllDataTheme: [...ThemeDelete] });
+    }
+    handleDeleteLesson = (themeId: number, lessonId: number) => {
+        const { AllDataTheme } = this.state;
+        const updatedThemes = AllDataTheme.map((theme, index) => {
+            if (index === themeId) {
+                const updatedLessons = theme.LessonData.filter((_, lessonIndex) => lessonIndex !== lessonId);
+                return { ...theme, LessonData: updatedLessons };
+            }
+            return theme;
+        });
+        this.setState({ AllDataTheme: updatedThemes });
     }
 
     render() {
@@ -66,8 +76,8 @@ export default class Main extends Component<{}, State> {
                     handleAddData={this.handleAddData}
                     handleAddLesson={this.handleAddLesson}
                     AllDataTheme={this.state.AllDataTheme}
-                    // LessonData={this.state.LessonData}
                     handleDeleteTheme={this.handleDeleteTheme}
+                    handleDeleteLesson={this.handleDeleteLesson}
                 />
             </Box>
         )
