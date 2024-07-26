@@ -135,16 +135,16 @@ import image from './Assets/view_services.png';
 import banner from './Assets/image_banner-01.jpg.png';
 import machine from './Assets/image_main.png';
 import logo from './Assets/image_logo.png'
-const buttonStyle = {
-  ':hover': { backgroundColor: '#12629A' },
-  ':active': { backgroundColor: '#12629A' },
-};
+// const buttonStyle = {
+//   ':hover': { backgroundColor: '#12629A' },
+//   ':active': { backgroundColor: '#12629A' },
+// };
 class HomePage extends Component {
   render() {
     return (
       <>
 
-        <Box
+        {/* <Box
           sx={{
             position: 'absolute',
             top: 0,
@@ -175,7 +175,7 @@ class HomePage extends Component {
             </Toolbar>
           </AppBar>
 
-        </Box>
+        </Box> */}
         <Box
           sx={{
 
@@ -283,8 +283,8 @@ class HomePage extends Component {
               marginBottom: '20px',
               border:'3px solid green'
             }}>
-        //  <img   
-        //  component="img"
+         <img   
+     
         style={{
           width:'454px',
           height:'480.49px',
