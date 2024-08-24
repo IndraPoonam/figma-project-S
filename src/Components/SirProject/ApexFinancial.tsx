@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Typography, Link, Chip, Divider } from '@mui/material';
 import { withStyles, WithStyles, createStyles } from '@mui/styles';
-
 const styles = createStyles({
     mainContainer: {
         display: 'flex',

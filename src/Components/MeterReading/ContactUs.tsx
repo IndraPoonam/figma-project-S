@@ -213,7 +213,7 @@ class ContactUs extends Component<Props> {
 
     return (
       <>
-        <Box
+        {/* <Box
           sx={{
             backgroundImage: `url(${banner})`,
             backgroundSize: 'cover',
@@ -224,7 +224,7 @@ class ContactUs extends Component<Props> {
             alignItems: 'center',
             color: 'white',
           }}
-        ></Box>
+        ></Box> */}
         <Box className={classes.container}>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px', }}>
             <Typography sx={{ fontSize: '32px', fontWeight: 800, color: '#12629A', font: 'Nunito Sans', letterSpacing: '-3px' }}>

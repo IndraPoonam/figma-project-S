@@ -229,7 +229,9 @@ class HomePage extends Component {
 
 
         {/* /////////////////////////////////////////////////// */}
-         <Box sx={{width:'100%', height:'1282.5px', border:'2px solid red',backgroundColor: '#E5F4FB',marginBottom:'2rem'}}>
+         <Box sx={{width:'100%', height:'1282.5px',
+           border:'2px solid red',
+           backgroundColor: '#E5F4FB',marginBottom:'2rem'}}>
         <Container
           style={{
             backgroundColor: '#E5F4FB',
@@ -279,7 +281,6 @@ class HomePage extends Component {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              
               marginBottom: '20px',
               border:'3px solid green'
             }}>

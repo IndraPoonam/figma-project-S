@@ -19,6 +19,8 @@ import ContactUsForm from './Components/MeterReading/ContactUsForm';
 import Services from './Components/MeterReading/Services';
 import Header from './Components/MeterReading/Header';
 import Footer from './Components/MeterReading/Footer';
+import InvoiceComponent from './Components/SirProject/InvoiceComponent';
+import BasicBreadcrumbs from './BasicBreadcrumbs';
 // import FAQComponent from './Components/SirProject/FaqTask';
 
 
@@ -35,12 +37,15 @@ function App() {
     <LandingDriver/>
    <SignupForm/> */}
   
-   {/* <Header/> */}
-    {/* <HomePage/> */}
-    {/* <Footer/> */}
+   {/* <Header/>
+    <HomePage/>
+   
    <ContactUs/>
+    <Footer/> */}
    {/* <ContactUsForm/> */}
    {/* <Services/> */}
+   {/* <InvoiceComponent/> */}
+   <BasicBreadcrumbs/>
     </div>
   );
 }

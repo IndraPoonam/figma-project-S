@@ -236,6 +236,7 @@ const styles = {
     backgroundSize: 'cover', 
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+  
   },
   infoContainer: {
     padding: '20px 0',
@@ -249,9 +250,12 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '25px',
+    font:'bold'
+   
   },
   infoHeader: {
-    color: 'white',
+    color: 'black',
+    font:'bold',
     marginBottom: '10px',
   },
   links: {
@@ -260,7 +264,7 @@ const styles = {
     gap: '16px',
   },
 link: {
-    color: 'white',
+    color: 'black',
     cursor: 'pointer',
     ':hover': {
       color: '#3b99fc',
@@ -272,7 +276,7 @@ link: {
   serviceBox: {
     width: '650px',
     height: '284.97px',
-    color: '#FFFFFF',
+    color: 'black',
     display: 'flex',
     flexDirection: 'column',
     gap: '23px',
