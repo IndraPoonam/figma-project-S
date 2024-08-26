@@ -5,6 +5,7 @@ export default class Counter extends Component {
     return (
       <div>Counter
         <h1>poonam</h1>
+        <h2>add</h2>
       </div>
     )
   }
