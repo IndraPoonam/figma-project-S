@@ -1,38 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-interface CounterState {
-  count: number;
-}
-
-class Counter extends Component<{}, CounterState> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      count: 0,
-    };
-  }
-
-  increment = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
-
-  decrement = () => {
-    this.setState({ count: this.state.count - 1 });
-  };
-
+export default class Counter extends Component {
   render() {
     return (
-      <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <h1>Counter: {this.state.count}</h1>
-        <button onClick={this.increment} style={{ margin: '10px', padding: '10px' }}>
-          Increment
-        </button>
-        <button onClick={this.decrement} style={{ margin: '10px', padding: '10px' }}>
-          Decrement
-        </button>
-      </div>
-    );
+      <div>Counter</div>
+    )
   }
 }
-
-export default Counter;
