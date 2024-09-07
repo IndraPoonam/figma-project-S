@@ -22,6 +22,7 @@ import Footer from './Components/MeterReading/Footer';
 import InvoiceComponent from './Components/SirProject/InvoiceComponent';
 import BasicBreadcrumbs from './BasicBreadcrumbs';
 import Counter from './Counter';
+import ApiUse from './Components/ApiUse';
 // import FAQComponent from './Components/SirProject/FaqTask';
 
 
@@ -47,7 +48,8 @@ function App() {
    {/* <Services/> */}
    {/* <InvoiceComponent/> */}
    {/* <BasicBreadcrumbs/> */}
-   <Counter/>
+   {/* <Counter/> */}
+   <ApiUse/>
     </div>
   );
 }

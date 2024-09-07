@@ -74,20 +74,16 @@ const styles: { [key: string]: CSSProperties } = {
     textAlign: 'center',
   },
 };
-
 class LandingDriver extends Component {
   render() {
     return (
       <div style={styles.mainbox}>
         <img src={logo} alt="E-Ryde Logo" style={styles.logo} />
-
         <div style={styles.carImage}>
           <img src={Car} alt="Car Image" style={styles.carImage} />
         </div>
-
         <h1 style={styles.typography}>Earn on the Road, Drive with Freedom</h1>
         <h3 style={styles. subTypography}>Non-medical transport</h3>
-
         <div style={styles.buttons}>
           <button style={{ ...styles.button, ...styles.primary }}>Sign Up</button>
           <button style={{ ...styles.button, ...styles.outlined }}>Sign In</button>
@@ -96,5 +92,4 @@ class LandingDriver extends Component {
     );
   }
 }
-
 export default LandingDriver;
