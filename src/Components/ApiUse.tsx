@@ -109,7 +109,7 @@ class ApiUse extends Component<{}, ApiComponentState> {
 
     return (
       <div>
-        <h1>API CRUD Operations</h1>
+        <h1>API use in react </h1>
         {/* Input for adding a new item */}
         <input
           type="text"
