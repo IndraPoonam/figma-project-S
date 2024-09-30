@@ -23,6 +23,8 @@ import InvoiceComponent from './Components/SirProject/InvoiceComponent';
 import BasicBreadcrumbs from './BasicBreadcrumbs';
 import Counter from './Counter';
 import ApiUse from './Components/ApiUse';
+import MyModal from './Components/MyModal';
+import Form from './Components/Form';
 // import FAQComponent from './Components/SirProject/FaqTask';
 
 
@@ -40,16 +42,12 @@ function App() {
    <SignupForm/> */}
   
    {/* <Header/>
-    <HomePage/>
-   
+    <HomePage/>  
    <ContactUs/>
     <Footer/> */}
-   {/* <ContactUsForm/> */}
-   {/* <Services/> */}
-   {/* <InvoiceComponent/> */}
-   {/* <BasicBreadcrumbs/> */}
-   {/* <Counter/> */}
-   <ApiUse/>
+ 
+   {/* <MyModal/> */}
+   <Form/>
     </div>
   );
 }
